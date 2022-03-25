@@ -79,7 +79,8 @@ export class GamePanelComponent implements OnInit {
   }
 
   onGuessed(){
-    this.guessed ++;
+    console.log("Guessed")
+    this.guessed += 1;
     this.checkWinCondition();
   }
 

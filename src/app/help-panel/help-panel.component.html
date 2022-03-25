@@ -1,7 +1,26 @@
 <div class="row">
-    <button class="btn btn-success" (click)="hint('hint')"> HINT </button>
+    <button 
+        class="btn btn-success" 
+        (click)="hint('hint')"
+        [disabled]="!started"> 
+        HINT 
+    </button>
 </div>
 <hr>
 <div class="row">
-    <button class="btn btn-success" (click)="hint('all')"> SHOW ALL </button>
+    <button 
+        *ngIf="!shown" 
+        class="btn btn-success" 
+        (click)="hint('all')"
+        [disabled]="!started">
+         SHOW ALL 
+    </button>
+
+    <button 
+        *ngIf="shown" 
+        class="btn btn-success" 
+        (click)="hint('all')"
+        [disabled]="!started"> 
+        HIDE ALL 
+    </button>
 </div>

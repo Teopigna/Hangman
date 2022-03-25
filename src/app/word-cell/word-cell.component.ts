@@ -18,6 +18,8 @@ export class WordCellComponent implements OnInit {
   revealed : boolean = false;
   hintRevealed: boolean = false;
 
+  hinted: boolean = false;
+
   constructor(private gameManager: GameManagerService) { }
 
   ngOnInit(): void {
@@ -25,14 +27,17 @@ export class WordCellComponent implements OnInit {
       () => {
         this.revealed = false;
         this.hintRevealed = false;
+        this.hinted = false;
       }
     );
     this.gameManager.letterInput.subscribe(
       (eventInput: string) => {
         if(this.letter == eventInput){
-          this.revealed = true;
-          this.hintRevealed = false;
-          this.guessed.emit();
+          if(!this.revealed){
+            this.revealed = true;
+            this.hintRevealed = false;
+            this.guessed.emit();
+          }
         }
       }
     );
@@ -42,8 +47,14 @@ export class WordCellComponent implements OnInit {
           this.hintRevealed = !this.hintRevealed;
         }
         if(eventInput == 'hint'){
-          if(this.position == 0 || this.position == (this.wordSize-1))
-            this.hintRevealed = !this.hintRevealed;
+          if(!this.hinted){
+            if(this.position == 0 || this.position == (this.wordSize-1)){
+              this.hinted = true;
+              this.revealed = true;
+              this.hintRevealed = false;
+              this.guessed.emit();
+            }
+          }           
         }
       }
     );

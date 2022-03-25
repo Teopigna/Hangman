@@ -8,12 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HelpPanelComponent implements OnInit {
 
+  shown: boolean = false;
+  started: boolean = false;
+
   constructor(private gameManager : GameManagerService) { }
 
   ngOnInit(): void {
+    this.gameManager.gameStarted.subscribe(
+      () => {
+        this.started = true;
+        this.shown = false;
+      }
+    )
   }
 
   hint(type: string){
+    if(type=='all') {
+      this.shown = !this.shown;
+    }
     this.gameManager.show(type);
   }
 

@@ -10,19 +10,33 @@ export class GameManagerService{
         'CANE',
         'GATTO',
         'LATTE',
-        'PANE'
+        'PANE',
+        'LONTRA',
+        'CARNE',
+        'BIRRA',
+        'VINO',
+        'FELPA'
     ]
 
     wordsListMedium: string[] = [
         'CONDANNA',
         'BISCOTTO',
-        'CENTRALE'
+        'CENTRALE',
+        'CAMINO',
+        'CAMMINO',
+        'CAVALLO',
+        'DORMIRE',
+        'TEMPORALE',
+        'MAGLIETTA'
     ]
 
     wordsListHard: string[] = [
         'CONDOMINIO',
         'TRANSATLANTICO',
-        'MONDOVISIONE'
+        'MONDOVISIONE',
+        'TEMPOREGGIARE',
+        'ORNITORINCO',
+        'TARDIGRADO'
     ]
 
     
