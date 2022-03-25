@@ -47,7 +47,7 @@ export class WordCellComponent implements OnInit {
           this.hintRevealed = !this.hintRevealed;
         }
         if(eventInput == 'hint'){
-          if(!this.hinted){
+          if(!this.hinted && !this.revealed){
             if(this.position == 0 || this.position == (this.wordSize-1)){
               this.hinted = true;
               this.revealed = true;
