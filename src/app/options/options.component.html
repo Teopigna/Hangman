@@ -1,0 +1,24 @@
+<div class="row">
+    <button class="btn btn-success" (click)="setDifficulty('easy')">EASY</button>
+</div>
+    
+<div class="row">
+    <button class="btn btn-warning" (click)="setDifficulty('medium')">MEDIUM</button>
+</div>
+
+<div class="row">
+    <button class="btn btn-danger" (click)="setDifficulty('hard')">HARD</button>
+</div>
+
+<hr>
+
+<div class="row">
+    <button *ngIf="!gameStarted" class="btn btn-primary" (click)="startGame()">START GAME</button>
+    <button *ngIf="gameStarted" class="btn btn-primary" (click)="startGame()">RESTART GAME</button>
+</div>
+    
+    
+
+
+
+

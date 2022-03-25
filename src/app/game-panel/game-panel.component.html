@@ -1,0 +1,19 @@
+<div class="row">
+    <h1 *ngIf="win" style="color: green;"> YOU WIN </h1>
+    <h1 *ngIf="lost" style="color: red;">YOU LOST</h1>
+</div>
+<div class="row">
+    <div class="col-auto">
+        <img src={{imgPath}} >
+    </div>
+    <div class="col-auto d-flex align-items-end">
+        <app-word-cell 
+            *ngFor="let item of word; let i = index" 
+            style="margin-left: 10px;"
+            [letter]="item"
+            [position]="i"
+            [wordSize]="word.length"
+            (guessed)="onGuessed()">
+        </app-word-cell>
+    </div>
+</div>
